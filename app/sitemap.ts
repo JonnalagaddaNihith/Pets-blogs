@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { allPets, allGuides } from 'contentlayer/generated'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'http://localhost:3000'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
   
   const petUrls = allPets.map((pet) => ({
     url: `${baseUrl}${pet.url}`,
