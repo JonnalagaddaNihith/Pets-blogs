@@ -5,12 +5,15 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --legacy-peer-deps
 
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
+# Create public directory in builder stage
+RUN mkdir -p /app/public
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
