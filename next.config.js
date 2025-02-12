@@ -11,6 +11,7 @@ const nextConfig = {
         hostname: '**', // Allow images from any hostname with https
       },
     ],
+    domains: ['dccwebsiteimages.s3.ap-south-1.amazonaws.com', 'cdn.pixabay.com'],
   },
 }
 

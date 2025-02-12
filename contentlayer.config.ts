@@ -41,7 +41,7 @@ export const Guide = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (doc) => `/guides/${doc._raw.sourceFileName.replace(/\.mdx$/, '')}`,
+      resolve: (doc) => `/care-guides/${doc._raw.sourceFileName.replace(/\.mdx$/, '')}`,
     },
   },
 }));

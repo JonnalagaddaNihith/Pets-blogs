@@ -1,7 +1,6 @@
 "use client";
 
 import { allGuides, Guide } from "contentlayer/generated";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Search } from 'lucide-react';
@@ -46,15 +45,13 @@ export default function GuidesPage() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredGuides.map((guide: Guide) => (
-          <Link key={guide._id} href={`/care-guides/${guide.url.split('/').pop()}`}>
+          <Link key={guide._id} href={`${guide.url}`}>
             <div className="group relative overflow-hidden rounded-lg border">
               <div className="h-64 w-full relative">
-                <Image
+                <img
                   src={guide.image}
                   alt={guide.title}
-                  fill
-                  className="object-cover transition-transform group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="h-full w-full object-cover transition-transform group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/40 transition-opacity group-hover:opacity-0" />
                 <h2 className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 text-white text-2xl font-bold text-center px-4 group-hover:opacity-0">

@@ -1,7 +1,6 @@
 import type { Guide } from "contentlayer/generated";
 import { allGuides } from "contentlayer/generated";
 import { getMDXComponent } from "next-contentlayer/hooks";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 
 interface PageProps {
@@ -43,14 +42,11 @@ export default async function Page({ params }: PageProps) {
             </div>
           )}
         </div>
-        <div className="mb-8 aspect-[16/9] relative">
-          <Image
+        <div className="mb-8">
+          <img
             src={guide.image}
             alt={guide.title}
-            fill
-            className="object-cover rounded-lg"
-            priority
-            sizes="(max-width: 768px) 100vw, 768px"
+            className="w-full h-[400px] object-cover rounded-lg"
           />
         </div>
         <div className="prose prose-lg max-w-none text-black">

@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { allPets, allGuides } from 'contentlayer/generated'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'http://localhost:3000'
+  const baseUrl = process.env.NEXT_APP_BASE_URL
   
   const petUrls = allPets.map((pet) => ({
     url: `${baseUrl}${pet.url}`,
@@ -20,10 +20,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes = [
     '',
-    '/pets',
-    '/pets/dogs',
-    '/pets/cats',
-    '/guides',
+    '/dogs',
+    '/cats',
+    '/care-guides',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString().split('T')[0],
